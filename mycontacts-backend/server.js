@@ -1,8 +1,10 @@
 const express=require('express')
-const dotenv=require('dotenv').config();
+require('dotenv').config();
+const app=express();
+const PORT =process.env.PORT||5000;
 
-const port =process.env.PORT;
-const app=express()
-app.listen(port,()=>{
-    console.log(`server running ${port}`);
+//middleware for parsing json request body
+app.use("/api/contacts",require("./routes/contactRoutes"));
+app.listen(PORT,()=>{
+    console.log(`server running ${PORT}`);
 })
