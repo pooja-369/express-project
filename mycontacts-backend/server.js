@@ -4,6 +4,7 @@ const app=express();
 const PORT =process.env.PORT||5000;
 
 //middleware for parsing json request body
+app.use(express.json());
 app.use("/api/contacts",require("./routes/contactRoutes"));
 app.listen(PORT,()=>{
     console.log(`server running ${PORT}`);
